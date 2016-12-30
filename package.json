@@ -1,21 +1,22 @@
 {
-  "name": "electron-quick-start",
+  "name": "ai",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A minimal Electron application for playing around with machine learning, steering behaviors, electron, canvas and ES6",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/Bigalan09/AI",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "AI",
+	"machine learning",
+    "steering behaviors",
+    "canvas",
+    "ES6"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Bigalan09",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.1"
   }
