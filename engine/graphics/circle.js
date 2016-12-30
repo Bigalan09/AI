@@ -1,15 +1,7 @@
-class Circle {
+class Circle extends Boid {
 
-    constructor(x, y, radius, speed, bounds) {
-        this.position = new Vector2(x, y);
-        this.velocity = new Vector2(0, 0);
-        this.mass = 5;
-        this.max_force = speed / 2;
-        this.max_speed = speed;
-        this.radius = radius;
-        this.wanderAngle = 15;
-        this.target = new Vector2(getRandomInt(0, 1000), getRandomInt(0, 600));
-        this.screenBounds = bounds;
+    constructor(x, y, radius, speed) {
+        super(x, y, radius, radius * speed, speed, speed / 2);
     }
 
     update() {
@@ -35,62 +27,20 @@ class Circle {
         this.velocity = truncate(this.velocity.add(steering), this.max_speed);
         this.position = this.position.add(this.velocity);
 
-        this.wrap();
+        super.update();
     }
 
-    draw(context) {
+    render(context) {
         context.beginPath();
         context.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI, false);
         context.fillStyle = 'rgba(220,235,255,0.3)';
         context.fill();
         context.lineWidth = 1;
-        context.strokeStyle = 'rgba(20,40,80,0.5)';
+        context.strokeStyle = 'rgba(60,60,60,0.5)';
         context.stroke();
+        super.render(context)
     }
 
-    wander() {
-        // Calculate the circle center
-        var circleCenter = this.velocity.clone();
-        circleCenter.normalize();
-        circleCenter.mul(30);
-        //
-        // Calculate the displacement force
-        var displacement = new Vector2(0, -1);
-        displacement.mul(this.radius);
-
-        //
-        // Randomly change the vector direction
-        // by making it change its current angle
-        displacement = setAngle(displacement, this.wanderAngle);
-        //
-        // Change wanderAngle just a bit, so it
-        // won't have the same value in the
-        // next game frame.
-        this.wanderAngle += Math.random() * 30 - 30 * .5;
-        //
-        // Finally calculate and return the wander force
-        var wanderForce = circleCenter.add(displacement);
-        return wanderForce;
-    }
-
-    wrap() {
-
-        var x = this.position.x;
-        var y = this.position.y;
-
-        if (this.position.x < 0) {
-            x = this.screenBounds.width;
-        } else if (this.position.x > this.screenBounds.width) {
-            x = 0;
-        }
-
-        if (this.position.y < 0) {
-            y = this.screenBounds.height;
-        } else if (this.position.y > this.screenBounds.height) {
-            y = 0;
-        }
-        this.position = new Vector2(x, y);
-    }
 }
 
 function getRandomInt(min, max) {

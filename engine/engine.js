@@ -12,6 +12,7 @@ class Engine {
     }
 
     add(entity) {
+        entity.game = this;
         this.entities.push(entity);
     }
 
@@ -23,13 +24,13 @@ class Engine {
         }
     }
 
-    draw() {
+    render() {
         this.mainContext.clearRect(0, 0, this.width, this.height);
 
         for (var i = 0; i < this.entities.length; i++) {
 
             var entity = this.entities[i];
-            entity.draw(this.mainContext);
+            entity.render(this.mainContext);
         }
     }
 

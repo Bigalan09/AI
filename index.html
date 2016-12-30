@@ -44,6 +44,8 @@
     <script src="engine/engine.js"></script>
     <script src="engine/math/vector2D.js"></script>
     <script src="engine/math/rectangle.js"></script>
+    <script src="engine/entity/entity.js"></script>
+    <script src="engine/entity/boid.js"></script>
     <script src="engine/graphics/circle.js"></script>
     <script>
         if (window.module) module = window.module;
@@ -53,17 +55,17 @@
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
         var game = new Engine(canvas, context);
-        for (var i = 0; i < 50; i++) {
+        for (var i = 0; i < 100; i++) {
             var randomX = getRandomInt(0, canvas.width);
             var randomY = getRandomInt(0, canvas.height);
             var speed = (getRandomInt(1, 2) * Math.random()) + 0.2;
             var size = getRandomInt(3, 6);
-            var c = new Circle(randomX, randomY, size, speed, game.bounds);
+            var c = new Circle(randomX, randomY, size, speed);
             game.add(c);
         }
         var f = function() {
             game.update();
-            game.draw();
+            game.render();
             requestAnimationFrame(f);
         };
         f();
