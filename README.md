@@ -1,6 +1,6 @@
 # AI
 
-**NOTE: This is just for fun and servces no purpose.**
+**NOTE: This is just for fun and serves no purpose.**
 
 This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
 Mainly playing around with machine learning, steering behaviors, electron, canvas and ES6.
