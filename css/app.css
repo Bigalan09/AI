@@ -14,7 +14,7 @@ body {
     width: 100%;
     float: left;
     text-align: center;
-    line-height: 2;
+    line-height: 2.1;
     font-size: 1.1em;
     font-weight: bold;
     background-color: #ffffff !important;
@@ -27,28 +27,29 @@ body {
     width: 96%;
 }
 
-.handle .title:hover, .handle .title:active {
-    background-color: #f8f8f8;
-}
-
 .handle .close {
     width: 4%;
     float: right;
     cursor: pointer;
-    color: #ffcccc;
-    background-color: #ff4433;
+    color: #444444;
     -webkit-app-region: no-drag;
 }
 
 .handle .close:hover {
-    background-color: #ff5544;
+    background-color: #e03b1a;
+    color: #ffeeee;
+    -webkit-transition: background-color 200ms linear;
+    -moz-transition: background-color 200ms linear;
+    -o-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
 }
 
 .container {
-  clear: both;
-  width: 100%;
-  text-align: center;
-  padding-top: 20px;
+    clear: both;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
 }
 
 canvas {

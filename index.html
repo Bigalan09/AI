@@ -20,7 +20,7 @@
             AI
         </div>
         <div class="close">
-            x
+            ×
         </div>
     </div>
     <div id="main" class="container">
@@ -43,6 +43,7 @@
     <script src="js/moment.min.js"></script>
     <script src="engine/engine.js"></script>
     <script src="engine/math/vector2D.js"></script>
+    <script src="engine/math/rectangle.js"></script>
     <script src="engine/graphics/circle.js"></script>
     <script>
         if (window.module) module = window.module;
@@ -52,12 +53,12 @@
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
         var game = new Engine(canvas, context);
-        for (var i = 0; i < 2500; i++) {
+        for (var i = 0; i < 50; i++) {
             var randomX = getRandomInt(0, canvas.width);
             var randomY = getRandomInt(0, canvas.height);
-            var speed = getRandomInt(1, 4);
-            var size = getRandomInt(5, 10);
-            var c = new Circle(randomX, randomY, size, speed);
+            var speed = (getRandomInt(1, 2) * Math.random()) + 0.2;
+            var size = getRandomInt(3, 6);
+            var c = new Circle(randomX, randomY, size, speed, game.bounds);
             game.add(c);
         }
         var f = function() {

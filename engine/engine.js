@@ -8,6 +8,7 @@ class Engine {
         this.height = canvas.height;
         this.centerX = this.width / 2;
         this.centerY = this.height / 2;
+        this.bounds = new Rectangle(0, 0, this.width, this.height);
     }
 
     add(entity) {

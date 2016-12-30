@@ -8,6 +8,10 @@ class Vector2 {
         this.y = y;
     }
 
+    clone() {
+        return new Vector2(this.x, this.y);
+    }
+
     length() {
 
         return Math.sqrt(Math.abs(this.x * this.x + this.y * this.y));
